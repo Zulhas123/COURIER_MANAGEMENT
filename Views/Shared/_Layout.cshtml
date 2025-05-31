@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LASMS</title>
+    <link href="~/css/notosansbengali.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @* <a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">~/lib/bootstrap/dist/css/bootstrap.min.css.map</a>*@
+   @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+    <link href="~/css/datatable.min.css" rel="stylesheet" />
+    <link href="~/css/layout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+  <link href="~/css/jquery-ui.css" rel="stylesheet" />
+  @*  <link href="/css/select2.min.css" rel="stylesheet" />*@
+    @* <link rel='stylesheet'
+    href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>*@
+
+</head>
+<body>
+    <partial name="_Navbar" />
+    <div id="layoutSidenav">
+        <partial name="_SideBar" />
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </main>
+            <partial name="_Footer" />
+        </div>
+    </div>
+    <script src="@Url.Content("~/js/all.min.js")" crossorigin="anonymous"></script>
+@*    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    @*<a href="~/lib/bootstrap/dist/js/bootstrap.bundle.js.map">~/lib/bootstrap/dist/js/bootstrap.bundle.js.map</a>
+    <a href="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">~/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map</a>*@
+    <script src="@Url.Content("~/js/sidebar.js")"></script>
+    <script src="@Url.Content("~/js/site.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/scripts.js")" asp-append-version="true"></script>
+        <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+
+    <script src="@Url.Content("~/js/jquery-ui.js")"></script>
+    @*<script src="@Url.Content("~/js/select2.min.js")"></script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>*@
+    <script src="@Url.Content("~/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.js")"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

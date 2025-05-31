@@ -1,0 +1,20 @@
+﻿@model CourierManagementsystem.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.Username)
+    @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(model => model.Password)
+    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    <br />
+
+    <button type="submit" class="btn btn-primary">Login</button>
+}

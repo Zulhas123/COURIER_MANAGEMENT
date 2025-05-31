@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CourierManagementsystem.Models.Shipment>
+
+@{
+    ViewBag.Title = "Manage Shipments";
+}
+
+<h2>Manage Shipments</h2>
+
+<!-- Display a list of shipments -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Consignment Number</th>
+            <th>Shipper Name</th>
+            <th>Receiver Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shipment in Model)
+        {
+            <tr>
+                <td>@shipment.ConsignmentNumber</td>
+                <td>@shipment.ShipperName</td>
+                <td>@shipment.ReceiverName</td>
+                <td>@shipment.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
