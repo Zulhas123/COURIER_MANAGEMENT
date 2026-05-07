@@ -1,6 +1,34 @@
-# Courier Management System (ASP.NET Core MVC)
+﻿# Courier Management System (ASP.NET Core MVC)
 
-This repository contains a **Clean Architecture** ASP.NET Core MVC application for a Courier Management System, implemented incrementally from the provided documentation.
+This repository contains a **Clean Architecture** ASP.NET Core MVC application for a Courier Management System.
+
+## What It Does (Short)
+
+Create and manage courier shipments end-to-end: configure parcel types, book parcels (automatic tracking ID + price calculation), generate invoices, and track shipments via a customer portal or a small JWT-protected API.
+
+## Implemented Features (Phase 1)
+
+- Parcel Type management (CRUD)
+- Parcel booking (create order)
+  - Auto tracking ID generation
+  - Weight-based pricing calculation
+  - COD support (adds COD amount to total payable)
+- Invoice view (print-friendly)
+- Customer tracking portal (by tracking ID)
+
+## Core Business Logic
+
+- **Tracking ID generation:** every booking produces a unique tracking ID used across invoice and tracking.
+- **Pricing:** total payable is computed from parcel type and weight (weight-based pricing rules).
+- **COD (Cash on Delivery):** when enabled, COD amount is included in the total payable and shown on the invoice.
+- **Consistency:** repositories + Unit of Work coordinate writes; in Development, migrations/seed run automatically.
+
+## Typical Workflow
+
+1. **Set up parcel types** (admin): create/update `ParcelType` records (pricing inputs used during booking).
+2. **Book a parcel** (staff): enter sender/receiver + parcel details → system generates tracking ID and computes charges.
+3. **Print invoice** (staff/customer): open the invoice view for the booking (print-friendly).
+4. **Track shipment** (customer/API): use tracking ID in the portal, or call `GET /api/tracking/{trackingId}` with JWT.
 
 ## Tech Stack
 
@@ -17,16 +45,6 @@ This repository contains a **Clean Architecture** ASP.NET Core MVC application f
 - `CourierManagement.Application` — service layer + abstractions (interfaces)
 - `CourierManagement.Infrastructure` — EF Core `DbContext`, repository implementations, migrations
 - `CourierManagement.Web` — MVC UI + minimal JWT-protected API endpoints
-
-## Implemented Features (Phase 1)
-
-- Parcel Type management (CRUD)
-- Parcel booking (create order)
-  - Auto tracking ID generation
-  - Weight-based pricing calculation
-  - COD support (adds COD amount to total payable)
-- Invoice view (print-friendly)
-- Customer tracking portal (by tracking ID)
 
 ## Run (LocalDB)
 
