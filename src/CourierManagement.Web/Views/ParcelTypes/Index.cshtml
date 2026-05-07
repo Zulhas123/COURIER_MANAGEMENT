@@ -1,0 +1,59 @@
+@model IReadOnlyList<CourierManagement.Domain.Entities.ParcelType>
+
+@{
+    ViewData["Title"] = "Parcel Types";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Parcel Types</h1>
+    <a class="btn btn-primary" asp-action="Create">New Type</a>
+</div>
+
+<div class="table-responsive border rounded">
+    <table class="table table-striped mb-0 align-middle">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th class="text-end">Base Rate</th>
+            <th class="text-end">Per Kg</th>
+            <th>Status</th>
+            <th class="text-end" style="width: 210px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="fw-semibold">@item.Name</div>
+                    @if (!string.IsNullOrWhiteSpace(item.Description))
+                    {
+                        <div class="text-muted small">@item.Description</div>
+                    }
+                </td>
+                <td class="text-end">@item.BaseRate.ToString("0.00")</td>
+                <td class="text-end">@item.PerKgRate.ToString("0.00")</td>
+                <td>
+                    @if (item.IsActive)
+                    {
+                        <span class="badge text-bg-success">Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge text-bg-secondary">Inactive</span>
+                    }
+                </td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <form class="d-inline" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                        @Html.AntiForgeryToken()
+                        <button class="btn btn-sm btn-outline-danger" type="submit" onclick="return confirm('Delete this parcel type?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+

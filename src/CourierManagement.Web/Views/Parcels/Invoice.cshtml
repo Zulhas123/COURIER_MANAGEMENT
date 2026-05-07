@@ -1,0 +1,77 @@
+@model CourierManagement.Domain.Entities.Parcel
+
+@{
+    ViewData["Title"] = "Invoice";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <div class="text-muted small">Invoice</div>
+        <h1 class="h4 mb-0">@Model.TrackingId</h1>
+    </div>
+    <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary" type="button" onclick="window.print();">Print</button>
+        <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@Model.Id">Back</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <h2 class="h6 mb-2">Sender</h2>
+                <div class="fw-semibold">@Model.SenderName</div>
+                <div class="text-muted">@Model.SenderPhone</div>
+                <div class="text-muted">@(!string.IsNullOrWhiteSpace(Model.SenderAddress) ? Model.SenderAddress : "-")</div>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2 class="h6 mb-2">Receiver</h2>
+                <div class="fw-semibold">@Model.ReceiverName</div>
+                <div class="text-muted">@Model.ReceiverPhone</div>
+                <div class="text-muted">@Model.ReceiverAddress</div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
+                <div class="text-muted small">Parcel Type</div>
+                <div class="fw-semibold">@Model.ParcelType?.Name</div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="text-muted small">Weight (kg)</div>
+                <div class="fw-semibold">@Model.WeightKg.ToString("0.###")</div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="text-muted small">Payment</div>
+                <div class="fw-semibold">@Model.PaymentMethod</div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="d-flex justify-content-end">
+            <table class="table table-sm" style="max-width: 380px;">
+                <tbody>
+                <tr>
+                    <td class="text-muted">Delivery Charge</td>
+                    <td class="text-end">@Model.DeliveryCharge.ToString("0.00")</td>
+                </tr>
+                @if (Model.PaymentMethod == CourierManagement.Domain.Enums.PaymentMethod.CashOnDelivery)
+                {
+                    <tr>
+                        <td class="text-muted">COD Amount</td>
+                        <td class="text-end">@((Model.CodAmount ?? 0).ToString("0.00"))</td>
+                    </tr>
+                }
+                <tr class="fw-semibold">
+                    <td>Total Payable</td>
+                    <td class="text-end">@Model.TotalPayable.ToString("0.00")</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

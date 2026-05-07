@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CourierManagement.Application/CourierManagement.Application.csproj" />
+    <Project Path="src/CourierManagement.Domain/CourierManagement.Domain.csproj" />
+    <Project Path="src/CourierManagement.Infrastructure/CourierManagement.Infrastructure.csproj" />
+    <Project Path="src/CourierManagement.Web/CourierManagement.Web.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,31 @@
+@model CourierManagement.Web.Models.TrackVm
+
+@{
+    ViewData["Title"] = "Track Parcel";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Track Parcel</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Track" method="post" class="row g-2 align-items-end">
+            @Html.AntiForgeryToken()
+            <div class="col-12 col-md-6">
+                <label asp-for="TrackingId" class="form-label"></label>
+                <input asp-for="TrackingId" class="form-control" placeholder="e.g. CM-20260507-A1B2C3" />
+                <span asp-validation-for="TrackingId" class="text-danger"></span>
+            </div>
+            <div class="col-12 col-md-auto">
+                <button class="btn btn-primary" type="submit">Track</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

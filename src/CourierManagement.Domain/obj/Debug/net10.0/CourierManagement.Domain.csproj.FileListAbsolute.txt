@@ -1,0 +1,11 @@
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\bin\Debug\net10.0\CourierManagement.Domain.deps.json
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\bin\Debug\net10.0\CourierManagement.Domain.dll
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\bin\Debug\net10.0\CourierManagement.Domain.pdb
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.AssemblyInfoInputs.cache
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.AssemblyInfo.cs
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.csproj.CoreCompileInputs.cache
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.dll
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\refint\CourierManagement.Domain.dll
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\CourierManagement.Domain.pdb
+E:\My Files\projects\COURIER_MANAGEMENT\src\CourierManagement.Domain\obj\Debug\net10.0\ref\CourierManagement.Domain.dll

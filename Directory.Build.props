@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <!-- Workaround for this environment: workload SDK locator folders are missing, and MSBuild can fail when evaluating project references. -->
+    <MSBuildEnableWorkloadResolver>false</MSBuildEnableWorkloadResolver>
+
+    <!-- Ensure project-to-project references resolve when building a single project (not from a solution configuration). -->
+    <OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration>false</OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration>
+
+    <!-- Normalize platform naming to what MSBuild's solution-mapping tasks expect. -->
+    <Platform Condition="'$(Platform)' == 'AnyCPU'">Any CPU</Platform>
+    <Platforms Condition="'$(Platforms)' == 'AnyCPU'">Any CPU</Platforms>
+
+    <!-- This environment can block Roslyn compiler server named pipes; disable shared compilation to keep builds reliable. -->
+    <UseSharedCompilation>false</UseSharedCompilation>
+
+    <!-- Avoid parallel MSBuild task execution for project references (can be flaky in restricted environments). -->
+    <BuildInParallel>false</BuildInParallel>
+  </PropertyGroup>
+</Project>

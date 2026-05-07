@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Courier Management";
+}
+
+<div class="row g-3 align-items-stretch">
+    <div class="col-12 col-lg-7">
+        <div class="p-4 bg-light border rounded-3 h-100">
+            <h1 class="display-6 mb-2">Courier Management System</h1>
+            <p class="text-muted mb-4">Start with the core module: parcel booking, pricing, invoice, and tracking.</p>
+            <div class="d-flex gap-2 flex-wrap">
+                <a class="btn btn-primary" asp-controller="Parcels" asp-action="Create">Book a Parcel</a>
+                <a class="btn btn-outline-primary" asp-controller="Parcels" asp-action="Track">Track Parcel</a>
+                <a class="btn btn-outline-secondary" asp-controller="ParcelTypes" asp-action="Index">Manage Parcel Types</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-5">
+        <div class="p-4 border rounded-3 h-100">
+            <h2 class="h5 mb-2">Delivery Status Flow</h2>
+            <p class="text-muted mb-0">Pending → Pickup Assigned → Picked Up → In Transit → Hub Received → Out for Delivery → Delivered</p>
+        </div>
+    </div>
+</div>
+

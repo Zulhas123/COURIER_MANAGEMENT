@@ -1,0 +1,50 @@
+@model IReadOnlyList<CourierManagement.Domain.Entities.Parcel>
+
+@{
+    ViewData["Title"] = "Parcels";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Parcels</h1>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-primary" asp-action="Track">Track</a>
+        <a class="btn btn-primary" asp-action="Create">Book Parcel</a>
+    </div>
+</div>
+
+<div class="table-responsive border rounded">
+    <table class="table table-striped mb-0 align-middle">
+        <thead>
+        <tr>
+            <th>Tracking</th>
+            <th>Type</th>
+            <th>Receiver</th>
+            <th class="text-end">Weight (kg)</th>
+            <th>Status</th>
+            <th class="text-end">Total</th>
+            <th class="text-end" style="width: 190px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="fw-semibold">@item.TrackingId</td>
+                <td>@(item.ParcelType?.Name ?? "-")</td>
+                <td>
+                    <div>@item.ReceiverName</div>
+                    <div class="text-muted small">@item.ReceiverPhone</div>
+                </td>
+                <td class="text-end">@item.WeightKg.ToString("0.###")</td>
+                <td><span class="badge text-bg-light border">@item.Status</span></td>
+                <td class="text-end">@item.TotalPayable.ToString("0.00")</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Invoice" asp-route-id="@item.Id">Invoice</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
